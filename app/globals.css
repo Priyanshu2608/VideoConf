@@ -15,6 +15,7 @@
    --color-dark-1: #1C1F2E;
    --color-dark-2: #161925;
    --color-blue-1: #0E78F9;
+   --bg-hero: url('/images/hero-background.png');
 }
 @theme inline {
   --color-background: var(--background);
@@ -54,6 +55,17 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+}
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.glassmorphism2 {
+  background: rgba(18, 17, 17, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .cl-userButtonPopoverActionButtonIcon {
   color: white;
