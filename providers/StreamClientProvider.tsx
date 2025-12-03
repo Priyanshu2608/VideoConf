@@ -11,21 +11,20 @@ const apiKey = process.env.NEXT_PUBLIC_STREAM_API_KEY;
 const StreamVideoProvider = ({ children }: { children: React.ReactNode }) => {
   console.log("✅ Stream Provider Component Rendered");
 
-  const [videoClient, setVideoClient] = useState<
-    StreamVideoClient | undefined
-  >();
-
+  const [videoClient, setVideoClient] = useState<StreamVideoClient | null>(null);
   const { user, isLoaded } = useUser();
 
-  // reset client if user logs out
   useEffect(() => {
     if (!isLoaded) return;
-    if (!user) setVideoClient(undefined);
+    if (!user) setVideoClient(null);
   }, [user, isLoaded]);
 
   useEffect(() => {
     if (!isLoaded || !user) return;
-    if (!apiKey) throw new Error("NEXT_PUBLIC_STREAM_API_KEY is missing");
+    if (!apiKey) {
+      console.error("❌ NEXT_PUBLIC_STREAM_API_KEY is missing");
+      return;
+    }
 
     console.log("✅ Stream Provider Initializing...");
 
@@ -43,14 +42,14 @@ const StreamVideoProvider = ({ children }: { children: React.ReactNode }) => {
 
     setVideoClient(client);
 
-    // cleanup to prevent ghost clients
     return () => {
       client.disconnectUser();
       console.log("🧹 Stream client disconnected");
     };
   }, [user, isLoaded]);
 
-  if (!videoClient) return <Loader />;
+  // ✅ DO NOT BLANK THE APP
+  if (!videoClient) return <>{children}</>;
 
   return <StreamVideo client={videoClient}>{children}</StreamVideo>;
 };

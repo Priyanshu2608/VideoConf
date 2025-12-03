@@ -70,7 +70,9 @@
 .cl-userButtonPopoverActionButtonIcon {
   color: white;
 }
-
+.cl-socialButtonsBlockButtonText__google{
+  color: white;
+}
 .cl-logoBox {
   height: 40px;
 }
