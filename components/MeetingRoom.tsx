@@ -43,7 +43,7 @@ const MeetingRoom = () => {
   const CallLayout = () => {
     switch (layout) {
       case 'grid':
-        return <PaginatedGridLayout />
+        return <PaginatedGridLayout  />
       case 'speaker-right':
         return <SpeakerLayout participantsBarPosition="left" />
       default:
@@ -52,11 +52,11 @@ const MeetingRoom = () => {
   }
 
   return (
-    <section className="relative h-screen w-full overflow-hidden pt-4 text-white">
+    <section className="relative h-screen w-full overflow-hidden pt-2 text-white">
       <div className="relative flex h-full w-full">
         
         {/* Video Layout */}
-        <div className="flex flex-1 items-center justify-center max-w-[1000px] mx-auto">
+        <div className="flex flex-1 items-center justify-center max-w-[1300px] mx-auto">
           <CallLayout />
         </div>
 
