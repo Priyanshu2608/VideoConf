@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import StreamVideoProvider from "@/providers/StreamClientProvider";
 import { Toaster } from "@/components/ui/sonner";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 const geistSans = Geist({
