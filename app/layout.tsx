@@ -34,7 +34,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ClerkProvider
           appearance={{
             layout: {
-              logoImageUrl: "/icons/yoom-logo.svg",
               socialButtonsVariant: "iconButton",
             },
             variables: {
